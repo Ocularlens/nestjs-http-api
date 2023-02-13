@@ -7,7 +7,7 @@
   "scripts": {
     "build": "nest build --webpack",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "sls-local": "npm run build && serverless offline start",
+    "sls-local": "npm run build && serverless offline start --stage local",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@vendia/serverless-express": "^4.10.1",
