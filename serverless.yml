@@ -1,13 +1,21 @@
 service: nestjs-http-api
-frameworkVersion: '3'
 
 plugins:
   - serverless-offline
+  - serverless-localstack
 
 provider:
   name: aws
+  region: ap-southeast-1
   runtime: nodejs14.x
   environment: ${file(env.yml):${opt:stage}}
+
+custom:
+  localstack:
+    stages:
+      - local
+    host: http://localhost.localstack.cloud
+    edgePort: 4566
 
 functions:
   api:
@@ -19,3 +27,16 @@ functions:
       - http:
           method: ANY
           path: /{any+}
+
+package:
+  # patterns:
+  #   - '!node_modules/.prisma/client/libquery_engine-*'
+  #   - 'node_modules/.prisma/client/libquery_engine-linux-arm64-*'
+  #   - '!node_modules/prisma/libquery_engine-*'
+  #   - '!node_modules/@prisma/engines/**'
+  exclude:
+    - node_modules/**
+    - test/**
+    - prisma/**
+    - .devcontainer/**
+    - src/**

@@ -17,8 +17,7 @@ export class UsersController {
 
   @Get()
   display(@Req() req: Request, @Res() res: Response) {
-    console.log({ req });
-    return res.status(HttpStatus.OK).json(this.usersService.getName());
+    return res.status(HttpStatus.OK).json({ name: 'Aldous' });
   }
 
   @Post('sample-post')
