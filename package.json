@@ -9,7 +9,6 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "sls-offline": "npm run build && serverless offline start --stage local",
     "sls-local": "npm run build && serverless deploy --stage local",
-    "postinstall": "prisma generate --client",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -58,6 +57,7 @@
     "prisma": "^4.10.1",
     "serverless-localstack": "^1.0.4",
     "serverless-offline": "^12.0.4",
+    "serverless-plugin-scripts": "^1.0.2",
     "serverless-plugin-typescript": "^2.1.4",
     "serverless-webpack": "^5.11.0",
     "source-map-support": "^0.5.21",
@@ -69,7 +69,8 @@
     "tsconfig-paths": "^4.0.0",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "webpack-permissions-plugin": "^1.0.9"
   },
   "jest": {
     "moduleFileExtensions": [

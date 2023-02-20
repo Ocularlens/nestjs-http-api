@@ -14,7 +14,7 @@ custom:
   localstack:
     stages:
       - local
-    host: http://localhost.localstack.cloud
+    host: http://host.docker.internal
     edgePort: 4566
 
 functions:
@@ -29,11 +29,6 @@ functions:
           path: /{any+}
 
 package:
-  # patterns:
-  #   - '!node_modules/.prisma/client/libquery_engine-*'
-  #   - 'node_modules/.prisma/client/libquery_engine-linux-arm64-*'
-  #   - '!node_modules/prisma/libquery_engine-*'
-  #   - '!node_modules/@prisma/engines/**'
   exclude:
     - node_modules/**
     - test/**

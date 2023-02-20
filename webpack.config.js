@@ -2,6 +2,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PermissionsPlugin = require('webpack-permissions-plugin');
+const path = require('path');
 
 module.exports = (options, webpack) => {
   const lazyImports = [
@@ -31,8 +33,12 @@ module.exports = (options, webpack) => {
         patterns: [
           { from: './prisma/schema.prisma', to: 'schema.prisma' },
           {
-            from: './node_modules/.prisma/client',
-            to: './prisma',
+            from: './node_modules/.prisma/client/libquery_engine-rhel-openssl-1.0.x.so.node',
+            to: './libquery_engine-rhel-openssl-1.0.x.so.node',
+          },
+          {
+            from: './node_modules/.prisma/client/libquery_engine-debian-openssl-1.1.x.so.node',
+            to: './libquery_engine-debian-openssl-1.1.x.so.node',
           },
           {
             from: 'node_modules/swagger-ui-dist',
@@ -40,6 +46,17 @@ module.exports = (options, webpack) => {
             globOptions: {
               ignore: ['**/index.html'], // Exclude index.html from being copied
             },
+          },
+        ],
+      }),
+      new PermissionsPlugin({
+        buildFiles: [
+          {
+            path: path.resolve(
+              __dirname,
+              `dist/libquery_engine-rhel-openssl-1.0.x.so.node`,
+            ),
+            fileMode: '755',
           },
         ],
       }),
@@ -57,5 +74,6 @@ module.exports = (options, webpack) => {
       ...options.output,
       libraryTarget: 'commonjs2',
     },
+    node: false,
   };
 };
