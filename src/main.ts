@@ -34,10 +34,8 @@ export const handler: Handler = async (
 
 function setupSwagger(app: INestApplication) {
   const options = new DocumentBuilder()
-    .setTitle('My API')
-    .setDescription('My application API')
+    .setTitle('NestJs HTTP API')
     .setVersion('1.0.0')
-    .addTag('#tag')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document, {
