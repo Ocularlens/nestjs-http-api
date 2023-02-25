@@ -9,7 +9,7 @@ export class FindAll {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute() {
-    return await this.articleRepository.findAll();
+  public execute() {
+    return this.articleRepository.findAll();
   }
 }

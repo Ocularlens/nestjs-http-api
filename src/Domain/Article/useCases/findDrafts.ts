@@ -9,7 +9,7 @@ export class FindDrafts {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute() {
-    return await this.articleRepository.findDrafts();
+  public execute() {
+    return this.articleRepository.findDrafts();
   }
 }

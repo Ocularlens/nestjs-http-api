@@ -9,7 +9,7 @@ export class FindOne {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute(id: number) {
-    return await this.articleRepository.findOne(id);
+  public execute(id: number) {
+    return this.articleRepository.findOne(id);
   }
 }

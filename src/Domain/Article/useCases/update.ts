@@ -10,7 +10,7 @@ export class Update {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute(id: number, data: Partial<Article>) {
-    return await this.articleRepository.update(id, data);
+  public execute(id: number, data: Partial<Article>) {
+    return this.articleRepository.update(id, data);
   }
 }

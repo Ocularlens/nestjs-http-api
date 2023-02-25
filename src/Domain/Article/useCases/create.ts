@@ -10,7 +10,7 @@ export class Create {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute(data: Partial<Article>) {
-    return await this.articleRepository.create(data);
+  public execute(data: Partial<Article>) {
+    return this.articleRepository.create(data);
   }
 }

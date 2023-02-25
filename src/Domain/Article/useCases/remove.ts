@@ -9,7 +9,7 @@ export class Remove {
     @ArticleRepo() private readonly articleRepository: IArticleRepository,
   ) {}
 
-  public async execute(id: number) {
-    return await this.articleRepository.remove(id);
+  public execute(id: number) {
+    return this.articleRepository.remove(id);
   }
 }
