@@ -1,4 +1,4 @@
-import { AppModule } from './app.module';
+import { AppModule } from './App/app.module';
 import { Callback, Context, Handler } from 'aws-lambda';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';

@@ -4,4 +4,4 @@ import { ControllerModule } from './Controller/controller.module';
 @Module({
   imports: [ControllerModule],
 })
-export class ApiModule {}
+export class InterfaceModule {}

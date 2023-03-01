@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { DomainModule } from '../../Domain/domain.module';
 import { ArticleController } from './Article/article.contoller';
-import { LoggerMiddleware } from '../Middleware/logger.middleware';
+import { LoggerMiddleware } from '../../App/Middleware/logger.middleware';
 
 @Module({
   imports: [DomainModule],

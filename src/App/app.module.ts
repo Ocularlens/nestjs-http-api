@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ApiModule } from './Api/api.module';
-import { InfraModule } from './Infra/infra.module';
+import { InterfaceModule } from '../Interface/interface.module';
+import { InfraModule } from '../Infra/infra.module';
 
 @Module({
   imports: [
@@ -9,7 +9,7 @@ import { InfraModule } from './Infra/infra.module';
       isGlobal: true,
     }),
     InfraModule,
-    ApiModule,
+    InterfaceModule,
   ],
 })
 export class AppModule {}

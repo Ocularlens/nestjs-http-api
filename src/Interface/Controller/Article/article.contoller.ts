@@ -23,7 +23,7 @@ import {
   ApiBearerAuth,
 } from '@nestjs/swagger';
 import { ArticleEntity } from 'src/Domain/Article/article.entity';
-import { AuthGuard } from 'src/Auth/Guard/auth.guard';
+import { AuthGuard } from '../../../App/Auth/Guard/auth.guard';
 import { CreateArticleDto } from './create-article.dto';
 import { UpdateArticleDto } from './update-article.dto';
 
